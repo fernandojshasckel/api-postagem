@@ -1,7 +1,5 @@
 package br.edu.unisep.tads.apipostagem.exception;
 
-import java.util.Date;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 

@@ -31,6 +31,8 @@ import lombok.Setter;
 @Table(name = "postagem")
 public class Postagem {
     
+    public Postagem() {}
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;

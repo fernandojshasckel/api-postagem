@@ -35,6 +35,7 @@ public class PostagemController {
         return postagemRepository.findAll();
     }
 
+    // Busca postagem conforme parametro
     @GetMapping("/postagem/{id}")
     public ResponseEntity<Postagem> getPostagemId(
         @PathVariable(value = "id") Long postagemId) throws ResourceNotFoundException{

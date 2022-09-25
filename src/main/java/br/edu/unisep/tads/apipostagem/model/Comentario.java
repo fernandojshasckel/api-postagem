@@ -27,7 +27,9 @@ import lombok.Setter;
 @Entity
 @Table(name = "comentario")
 public class Comentario {
-  
+
+    public Comentario() {}
+    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;

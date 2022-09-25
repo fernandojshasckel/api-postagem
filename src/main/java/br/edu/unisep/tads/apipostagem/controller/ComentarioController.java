@@ -34,6 +34,7 @@ public class ComentarioController {
         return comentarioRepository.findAll();
     }
 
+    // Busca comentario conforme parametro
     @GetMapping("/comentario/{id}")
     public ResponseEntity<Comentario> getComentarioId(
         @PathVariable(value = "id") Long comentarioId) throws ResourceNotFoundException{
