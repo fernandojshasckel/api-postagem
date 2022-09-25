@@ -22,31 +22,34 @@ import org.springframework.data.annotation.LastModifiedDate;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "postagem")
 public class Postagem {
     
-    public Postagem() {}
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @Column(name = "titulo", nullable = false, length = 75)
+    @Column(name = "titulo", length = 75)
     private String titulo;
 
-    @Column(name = "texto", nullable = false, length = 255)
+    @Column(name = "texto", length = 255)
     private String texto;
 
-    @Column(name = "foto", nullable = false)
+    @Column(name = "foto")
     private String foto;
 
-    @Column(name = "autor", nullable = false)
+    @Column(name = "autor"
+    )
     private String autor;
 
     @OneToMany(mappedBy = "postagem",
@@ -56,21 +59,21 @@ public class Postagem {
     @JsonIgnore
     private Set<Comentario> comentarios;
 
-    @Column(name = "criado_em", nullable = false)
+    @Column(name = "criado_em")
     @Temporal(TemporalType.TIMESTAMP)
     @CreatedDate
     private Date criadoEm;
 
-    @Column(name = "criado_por", nullable = false)
+    @Column(name = "criado_por")
     @CreatedBy
     private String criadoPor;
 
-    @Column(name = "alterado_em", nullable = false)
+    @Column(name = "alterado_em")
     @Temporal(TemporalType.TIMESTAMP)
     @LastModifiedDate
     private Date alteradoEm;
 
-    @Column(name = "alteradoPor", nullable = false)
+    @Column(name = "alterado_por")
     @LastModifiedBy
     private String alteradoPor; 
 }

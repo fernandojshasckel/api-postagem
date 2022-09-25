@@ -19,16 +19,18 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "comentario")
 public class Comentario {
-
-    public Comentario() {}
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -38,31 +40,31 @@ public class Comentario {
     @JoinColumn(name = "postagem_id")
     private Postagem postagem;
 
-    @Column(name = "autor", nullable = false, length = 75)
+    @Column(name = "autor", length = 75)
     private String autor;
 
-    @Column(name = "texto", nullable = false, length = 255)
+    @Column(name = "texto", length = 255)
     private String texto;
     
-    @Column(name = "data", nullable = false)
+    @Column(name = "data")
     @Temporal(TemporalType.TIMESTAMP)
     private Date data;
 
-    @Column(name = "criado_em", nullable = false)
+    @Column(name = "criado_em")
     @Temporal(TemporalType.TIMESTAMP)
     @CreatedDate
     private Date criadoEm;
-    
-    @Column(name = "criado_por", nullable = false)
+
+    @Column(name = "criado_por")
     @CreatedBy
     private String criadoPor;
-    
-    @Column(name = "alteradoEm", nullable = false)
+
+    @Column(name = "alterado_em")
     @Temporal(TemporalType.TIMESTAMP)
     @LastModifiedDate
     private Date alteradoEm;
 
-    @Column(name = "alteradoPor", nullable = false)
+    @Column(name = "alterado_por")
     @LastModifiedBy
-    private String alteradoPor;
+    private String alteradoPor; 
 }
